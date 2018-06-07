@@ -1,7 +1,5 @@
 #include <iostream>
 #include <array>
-//#include <functional>
-#include <vector>
 #include <iomanip>
 #include <string>
 
@@ -14,14 +12,15 @@ private:
     array <array<T, M>, N> macierz;
 public:
 
-    void printMatrix(){
+    void printMatrix(string m){
+        cout<<"Matrix "<<m;
         for(auto rzad:macierz){
             cout<<endl;
             for(auto value:rzad){
                 cout<<setw(12)<< value<<"|";
             }
         }
-        cout<<endl;
+        cout<<endl<<endl;
     }
 
     matrix() {                                                                                  //konstruktor domyslny
@@ -99,19 +98,18 @@ int main()
     matrix<int, 3,3> m2(1.2);
     matrix<int, 3,3> m3(0);
     matrix<int, 2,2> m4;
-    m1.printMatrix();
-    m2.printMatrix();
+    m1.printMatrix("m1");
+    m2.printMatrix("m2");
     m2=m1+2.3+3.7;
     m1=m2*10.5;
-    m1.printMatrix();
-    m2.printMatrix();
+    m1.printMatrix("m1");
+    m2.printMatrix("m2");
     m3=m1+m2;
-    m3.printMatrix();
+    m3.printMatrix("m3");
     m3=m1*m2;
-    m3.printMatrix();
+    m3.printMatrix("m3");
     matrix<int, 3,3> m5(m3);
-    m5.printMatrix();
-    m4.printMatrix();
-    cout << "Hello World!" << endl;
+    m5.printMatrix("m5");
+    m4.printMatrix("m4");
     return 0;
 }
